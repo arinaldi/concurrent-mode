@@ -1,4 +1,8 @@
-import React, { useState, useTransition } from 'react';
+import React, {
+  Suspense,
+  useState,
+  useTransition,
+} from 'react';
 
 import './App.css';
 import ErrorBoundary from './ErrorBoundary';
@@ -40,9 +44,9 @@ const App = () => {
       <h1>Suspense Demo</h1>
       <button onClick={handleClick}>Get Joke</button>
       <ErrorBoundary key={errorKey}>
-        <React.Suspense fallback={<p>Loading...</p>}>
+        <Suspense fallback={<p>Loading...</p>}>
           <Joke jokeResource={jokeResource} isPending={isPending} />
-        </React.Suspense>
+        </Suspense>
       </ErrorBoundary>
     </div>
   )
