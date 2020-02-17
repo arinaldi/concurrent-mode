@@ -23,14 +23,12 @@ const App = () => {
   const [errorKey, setErrorKey] = useState(0);
   const [startTransition, isPending] = useTransition(TRANSITION_CONFIG);
 
-  const handleResetError = () => {
+  const resetError = () => {
     setErrorKey(prevKey => prevKey + 1);
   };
 
   const handleClick = () => {
-    if (errorKey > 0) {
-      handleResetError();
-    }
+    resetError();
 
     startTransition(() => {
       setJokeResource(createJokeResource())
